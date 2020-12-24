@@ -1,17 +1,27 @@
-// Crie um algoritmo que gere o seguinte padrão de ID aleatório: XXXX-AAAA-BBBB-CCCC
-// Onde os padrões XXXX, AAAA, BBBB e CCCC são alfanuméricos aleatórios
-// O padrão é uma string: "XXXX-AAAA-BBBB-CCCC"
-// O resultado deve ser armazenado em uma variável. Por exemplo:
-// let id = generarId()
-// id vale ~ abc1-bb12-234a-bcc2
+// Crie um hashmap (ou um objeto simples em JavaScript) que contenha as funções elementares de adição, subtração, multiplicação e divisão.
+// Leve em consideração que a divisão não deve permitir dividendo 0
+// A função sum permite um array como parâmetro de entrada e adiciona todos os seus elementos.
+// A função de subtração permite um array como parâmetro de entrada e subtrai todos os seus elementos.
+// Função de multiplicação - Idem
+// A função de divisão aceita dois parâmetros: a e b.
 
-function generarId() {
-  let first = Math.random().toString(36).substr(-4).toUpperCase();
-  let medium = Math.random().toString(36).substr(-4).toUpperCase();
-  let last = Math.random().toString(36).substr(-4).toUpperCase();
+const functions = {
+  sum(array) {
+    const result = array.reduce((a, b) => a + b, 0);
+    return result;
+  },
 
-  return first + "-" + medium + "-" + last;
-}
-let id = generarId();
+  subtraction(array) {
+    const result = array.reduce((a, b) => a - b, 0);
+    return result;
+  },
+  division(a, b) {
+    if (a == 0 || b == 0) {
+      return "Parameters can't be equal to 0 ";
+    }
 
-console.log(id);
+    const result = a / b;
+
+    return result;
+  },
+};
